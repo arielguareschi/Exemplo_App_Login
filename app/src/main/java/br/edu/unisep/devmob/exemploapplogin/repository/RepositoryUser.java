@@ -26,7 +26,7 @@ public class RepositoryUser extends Repository {
             cv.put("login", user.getLogin());
             cv.put("password", user.getPassword());
             cv.put("email", user.getEmail());
-            banco.insert("user", null, cv);
+            banco.insert("usuario", null, cv);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -41,7 +41,7 @@ public class RepositoryUser extends Repository {
             cv.put("login", user.getLogin());
             cv.put("password", user.getPassword());
             cv.put("email", user.getEmail());
-            banco.update("user", cv, where, args);
+            banco.update("usuario", cv, where, args);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,7 +69,7 @@ public class RepositoryUser extends Repository {
 
     public Cursor buscarWhere(String field, String filter) {
         try {
-            String sql = "select * from user ";
+            String sql = "select * from usuario ";
             if (!field.equalsIgnoreCase("")) {
                 sql += "where upper(" + field + ") like upper('%" + filter + "%')";
             }
@@ -83,7 +83,7 @@ public class RepositoryUser extends Repository {
     public User buscarUnico(Long id) {
         try {
             User user = new User();
-            String sql = "select * from user where _id = ?";
+            String sql = "select * from usuario where _id = ?";
             String[] args = {id.toString()};
             c = banco.rawQuery(sql, args);
             while (c.moveToNext()) {
@@ -106,7 +106,7 @@ public class RepositoryUser extends Repository {
     public boolean checkLogin(User user) {
         try {
             String sql = "select * " +
-                    "from user " +
+                    "from usuario " +
                     "where login = ? " +
                     "  and password = ?";
             String[] args = {user.getLogin(), user.getPassword()};
