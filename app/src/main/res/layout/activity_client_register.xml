@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,22 +7,21 @@
     tools:context=".ClientRegister">
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/cadastro_de_cliente"
-        android:textSize="34sp"
-        android:gravity="center"/>
+        android:textSize="34sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center_vertical"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tvCadCliName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/nome" />
@@ -32,11 +30,13 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:labelFor="@id/tvCadCliName" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tvCadCliAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/endereco" />
@@ -45,11 +45,13 @@
             android:id="@+id/etAdress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+            android:labelFor="@id/tvCadCliAddress" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tvCadCliCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cidade" />
@@ -58,11 +60,13 @@
             android:id="@+id/etCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+            android:labelFor="@id/tvCadCliCity" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/tvCadCliPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/telefone" />
@@ -71,11 +75,13 @@
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
-            android:inputType="phone"/>
+            android:inputType="phone"
+            android:labelFor="@id/tvCadCliPhone" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/tvCadCliCellPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/celular" />
@@ -84,20 +90,22 @@
             android:id="@+id/etCellPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:labelFor="@id/tvCadCliCellPhone" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/swActive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ativo"/>
+            android:text="@string/ativo" />
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/salvar"/>
+            android:text="@string/salvar" />
     </LinearLayout>
 
 

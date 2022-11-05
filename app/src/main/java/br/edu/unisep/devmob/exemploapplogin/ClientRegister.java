@@ -3,7 +3,6 @@ package br.edu.unisep.devmob.exemploapplogin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -32,11 +31,5 @@ public class ClientRegister extends AppCompatActivity {
         etCellPhone = findViewById(R.id.etCellPhone);
         swActive = findViewById(R.id.swActive);
 
-//        btnSave.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
     }
 }

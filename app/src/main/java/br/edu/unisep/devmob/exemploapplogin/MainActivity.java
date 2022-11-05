@@ -6,10 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -41,12 +39,7 @@ public class MainActivity extends AppCompatActivity {
             etUser.setEnabled(false);
         }
 
-        chkLembrarLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                etUser.setEnabled(!isChecked);
-            }
-        });
+        chkLembrarLogin.setOnCheckedChangeListener((buttonView, isChecked) -> etUser.setEnabled(!isChecked));
         // ver se existe o admin criado senao ja cria no banco
         User admin = new User();
         admin.setLogin("admin");
@@ -63,24 +56,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                User u = new User();
-                u.setLogin(etUser.getText().toString());
-                u.setPassword(etPassword.getText().toString());
-                RepositoryUser rpuser = new RepositoryUser(MainActivity.this);
-                try{
-                    if (rpuser.checkLogin(u)) {
-                        Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
-                        intent.putExtra("name", etUser.getText().toString());
-                        startActivity(intent);
-                    } else {
-                      tvError.setText("Usuario ou senha invalidos!");
-                    }
-                } finally {
-                    rpuser.fechar();
+        btnLogin.setOnClickListener(view -> {
+            User u = new User();
+            u.setLogin(etUser.getText().toString());
+            u.setPassword(etPassword.getText().toString());
+            RepositoryUser rpuser1 = new RepositoryUser(MainActivity.this);
+            try{
+                if (rpuser1.checkLogin(u)) {
+                    Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
+                    intent.putExtra("name", etUser.getText().toString());
+                    startActivity(intent);
+                } else {
+                  tvError.setText(R.string.user_invalid);
                 }
+            } finally {
+                rpuser1.fechar();
             }
         });
     }

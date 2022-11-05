@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Exemplo1</string>
-    <string name="informe_um_valor">Informe um valor:</string>
     <string name="acessar">Acessar</string>
     <string name="seja_bem_vindo">Seja bem vindo!</string>
     <string name="login">Login</string>
@@ -19,4 +18,7 @@
     <string name="cadastro_de_usuario">Cadastro de Usuario</string>
     <string name="email">Email</string>
     <string name="usuarios">Usuarios</string>
+    <string name="user_invalid">Usuario ou senha invalidos!</string>
+    <string name="welcome">Bem Vindo(a): </string>
+    <string name="lembrar_login">Lembrar Login</string>
 </resources>

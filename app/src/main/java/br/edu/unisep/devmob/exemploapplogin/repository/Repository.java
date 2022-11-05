@@ -9,7 +9,7 @@ import java.io.File;
 public class Repository {
 
     public SQLiteDatabase banco;
-    private Context ctx;
+    private final Context ctx;
 
     public Repository(Context ctx){
         this.ctx = ctx;

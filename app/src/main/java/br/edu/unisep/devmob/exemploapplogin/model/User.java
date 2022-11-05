@@ -1,7 +1,5 @@
 package br.edu.unisep.devmob.exemploapplogin.model;
 
-import android.widget.EditText;
-
 import java.util.Objects;
 
 public class User {

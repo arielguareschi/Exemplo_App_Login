@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -26,23 +25,17 @@ public class MenuPrincipal extends AppCompatActivity {
 
         if (extras != null) {
             String login = extras.getString("name");
-            tvName.setText("Bem Vindo(a): " + login);
+            tvName.setText(getString(R.string.welcome).concat(login));
         }
 
-        btnUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentUserRegister = new Intent(MenuPrincipal.this, UserRegister.class);
-                startActivity(intentUserRegister);
-            }
+        btnUser.setOnClickListener(view -> {
+            Intent intentUserRegister = new Intent(MenuPrincipal.this, UserRegister.class);
+            startActivity(intentUserRegister);
         });
 
-        btnClient.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentClientRegister = new Intent(MenuPrincipal.this, ClientRegister.class);
-                startActivity(intentClientRegister);
-            }
+        btnClient.setOnClickListener(view -> {
+            Intent intentClientRegister = new Intent(MenuPrincipal.this, ClientRegister.class);
+            startActivity(intentClientRegister);
         });
 
     }
