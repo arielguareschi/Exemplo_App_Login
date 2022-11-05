@@ -29,7 +29,7 @@ public class MenuPrincipal extends AppCompatActivity {
         }
 
         btnUser.setOnClickListener(view -> {
-            Intent intentUserRegister = new Intent(MenuPrincipal.this, UserRegister.class);
+            Intent intentUserRegister = new Intent(MenuPrincipal.this, UserList.class);
             startActivity(intentUserRegister);
         });
 

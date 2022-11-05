@@ -51,7 +51,7 @@ public class RepositoryUser extends Repository {
         try {
             String where = "_id=?";
             String[] args = {user.getId().toString()};
-            banco.delete("user", where, args);
+            banco.delete("usuario", where, args);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -59,7 +59,7 @@ public class RepositoryUser extends Repository {
 
     public Cursor listar() {
         try {
-            String sql = "select * from user";
+            String sql = "select * from usuario";
             return banco.rawQuery(sql, null);
         } catch (Exception e) {
             e.printStackTrace();

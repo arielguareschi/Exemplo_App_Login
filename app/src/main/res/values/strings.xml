@@ -21,4 +21,7 @@
     <string name="user_invalid">Usuario ou senha invalidos!</string>
     <string name="welcome">Bem Vindo(a): </string>
     <string name="lembrar_login">Lembrar Login</string>
+    <string name="id">ID</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="excluir">Excluir</string>
 </resources>
