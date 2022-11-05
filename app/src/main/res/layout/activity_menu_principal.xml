@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MenuPrincipal">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btnUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/usuarios" />
+
+        <Button
+            android:id="@+id/btnClient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clientes" />
+
+        <Button
+            android:id="@+id/btnTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tarefas" />
+
+        <Button
+            android:id="@+id/btnServiceOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ordem_de_servi_os" />
+    </LinearLayout>
+
+
+</LinearLayout>
