@@ -47,6 +47,21 @@ public class MainActivity extends AppCompatActivity {
                 etUser.setEnabled(!isChecked);
             }
         });
+        // ver se existe o admin criado senao ja cria no banco
+        User admin = new User();
+        admin.setLogin("admin");
+        admin.setPassword("admin");
+        admin.setEmail("admin@admin.com.br");
+        admin.setName("admin");
+        RepositoryUser rpuser = new RepositoryUser(MainActivity.this);
+        try{
+            if (!rpuser.checkLogin(admin)){
+                rpuser.inserir(admin);
+            }
+        } finally {
+            rpuser.fechar();
+        }
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
