@@ -60,6 +60,12 @@ public class UserList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onResume() {
+        loadList();
+        super.onResume();
+    }
+
     private void loadList() {
         try {
             cursor = repositoryUser.listar();

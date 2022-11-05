@@ -1,12 +1,15 @@
 package br.edu.unisep.devmob.exemploapplogin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.edu.unisep.devmob.exemploapplogin.model.User;
@@ -84,5 +87,23 @@ public class UserRegister extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu_user_register, menu);
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_user_delete) {
+            if (user.getId() != null) {
+                RepositoryUser rpuser = new RepositoryUser(UserRegister.this);
+                try {
+                    rpuser.remover(user);
+                    Toast.makeText(UserRegister.this, "Usuário removido com sucesso!", Toast.LENGTH_SHORT).show();
+                    finish();
+                } finally {
+                    rpuser.fechar();
+                }
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
