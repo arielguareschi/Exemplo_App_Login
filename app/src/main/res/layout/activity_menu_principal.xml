@@ -40,6 +40,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ordem_de_servi_os" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome da cidade"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etCity"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Consultar"
+            android:id="@+id/btnCity"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvCityReturn"/>
+
     </LinearLayout>
 
 
