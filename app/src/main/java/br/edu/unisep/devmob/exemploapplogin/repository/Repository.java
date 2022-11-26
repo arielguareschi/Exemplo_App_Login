@@ -11,23 +11,23 @@ public class Repository {
     public SQLiteDatabase banco;
     private final Context ctx;
 
-    public Repository(Context ctx){
+    public Repository(Context ctx) {
         this.ctx = ctx;
         conectar();
         criarTabelas();
     }
 
-    private void conectar(){
-        try{
+    private void conectar() {
+        try {
             String dir = ctx.getFilesDir().getAbsolutePath() + File.separator;
             banco = ctx.openOrCreateDatabase(dir + "banco.db", 0, null);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void criarTabelas(){
-        try{
+    private void criarTabelas() {
+        try {
             String sql = "CREATE TABLE IF NOT EXISTS usuario( " +
                     "  _id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     "  name TEXT, " +
@@ -35,15 +35,27 @@ public class Repository {
                     "  password TEXT, " +
                     "  email TEXT " +
                     ");";
+
             banco.execSQL(sql);
-        } catch (Exception e){
+
+            sql = "CREATE TABLE IF NOT EXISTS cliente(" +
+                    " _id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    " name TEXT," +
+                    " address TEXT," +
+                    " city TEXT," +
+                    " phone TEXT," +
+                    " cellphone TEXT," +
+                    " active BOOLEAN);";
+
+            banco.execSQL(sql);
+        } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(ctx, "Erro ao criar tabelas " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void fechar(){
-        if (banco != null && banco.isOpen()){
+    public void fechar() {
+        if (banco != null && banco.isOpen()) {
             banco.close();
         }
     }

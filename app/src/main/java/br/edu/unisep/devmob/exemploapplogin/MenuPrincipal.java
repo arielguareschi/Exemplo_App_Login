@@ -47,7 +47,7 @@ public class MenuPrincipal extends AppCompatActivity {
         });
 
         btnClient.setOnClickListener(view -> {
-            Intent intentClientRegister = new Intent(MenuPrincipal.this, ClientRegister.class);
+            Intent intentClientRegister = new Intent(MenuPrincipal.this, ClientList.class);
             startActivity(intentClientRegister);
         });
 
