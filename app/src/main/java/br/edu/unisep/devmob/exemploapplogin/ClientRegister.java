@@ -1,8 +1,12 @@
 package br.edu.unisep.devmob.exemploapplogin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -85,5 +89,31 @@ public class ClientRegister extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_client_register, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_client_delete) {
+            if (client.getId() != null) {
+                ClientRepository rpclient = new ClientRepository(ClientRegister.this);
+                try {
+                    rpclient.remover(client);
+                    Toast.makeText(ClientRegister.this, "Cliente removido com sucesso!", Toast.LENGTH_SHORT).show();
+                    finish();
+                } finally {
+                    rpclient.fechar();
+                }
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
