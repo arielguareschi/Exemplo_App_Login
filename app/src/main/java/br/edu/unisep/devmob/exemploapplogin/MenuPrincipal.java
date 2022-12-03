@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import java.util.Locale;
 
 import br.edu.unisep.devmob.exemploapplogin.async.CityAsync;
+import br.edu.unisep.devmob.exemploapplogin.async.ForecastAsync;
 
 public class MenuPrincipal extends AppCompatActivity {
 
@@ -65,7 +66,29 @@ public class MenuPrincipal extends AppCompatActivity {
                         String key = c.getString("Key");
                         String nome = c.getString("LocalizedName");
                         String estado = c.getJSONObject("AdministrativeArea").getString("ID");
-                        txt += key+" - "+nome+" - "+estado+" \n";
+                        String previsao = "indisponivel";
+                        String tempMin = "";
+                        String tempMax = "";
+
+                        ForecastAsync fa = new ForecastAsync(MenuPrincipal.this);
+                        fa.execute(key);
+                        String previsaoRetorno = fa.get();
+                        if(!previsaoRetorno.equals("")){
+                            JSONObject previsaoJson = new JSONObject(previsaoRetorno);
+                            JSONArray previsaoArray = previsaoJson.getJSONArray("DailyForecasts");
+                            JSONObject previsaoDia = previsaoArray.getJSONObject(0);
+                            JSONObject dia = previsaoDia.getJSONObject("Day");
+                            previsao = dia.getString("LongPhrase");
+                            JSONObject temperatura = previsaoDia.getJSONObject("Temperature");
+                            JSONObject minima = temperatura.getJSONObject("Minimum");
+                            JSONObject maxima = temperatura.getJSONObject("Maximum");
+                            tempMin = minima.getInt("Value")+minima.getString("Unit");
+                            tempMax = maxima.getInt("Value")+maxima.getString("Unit");
+
+                        }
+
+                        txt += key+" - "+nome+" - "+estado+" \n" + "Previsão: " + previsao + "\n" +
+                                "Temperatura: " + tempMin + " à " + tempMax + "\n\n";
                     }
                     tvCityReturn.setText(txt);
                 }
